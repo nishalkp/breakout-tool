@@ -1,0 +1,47 @@
+<div style="width: 1000px;border: 1px solid black; padding: 5px;">
+  
+  <div style="padding: 5px;">
+    <label > Nifty   </label><input type="file" (change)="onNiftyFileSelected($event)" />
+    <span style="color: greenyellow;" *ngIf="niftyUploaded">UPLOADED</span>
+  </div>
+  <div style="padding: 5px;">
+    <label > Nifty  Next </label><input type="file" (change)="onNextFileSelected($event)" />
+    <span style="color: greenyellow;" *ngIf="niftyNextUploaded">UPLOADED</span>
+  </div>
+  <div style="padding: 5px;">
+    <label > First Date Data   </label><input type="file" (change)="onFDateFileSelected($event)" />
+    <span style="color: greenyellow;" *ngIf="fDateUploaded">UPLOADED</span>
+  </div>
+  <div style="padding: 5px;">
+    <label > Second Date Data   </label><input type="file" (change)="onSecDateFileSelected($event)" />
+    <span style="color: greenyellow;" *ngIf="sDateUploaded">UPLOADED</span>
+  </div>
+  <div>
+    <button style="width: 100px;background-color: aqua;padding: 10px; margin: 15px;" (click)="generate()"> Generate</button>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th style="margin: 5px;">Company Name</th>
+          <th style="margin: 5px;">ISIN Code</th>
+          <th style="margin: 5px;">Industry</th>
+          <th style="margin: 5px;">Series</th>
+          <th style="margin: 5px;">Symbol</th>
+          <th style="margin: 5px;">breaked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of FinalDataSet">
+          <td>{{ data.Company_Name}}</td>
+          <td>{{ data.ISIN_Code }}</td>
+          <td>{{ data.Industry }}</td>
+          <td>{{ data.Series }}</td>
+          <td>{{ data.Symbol }}</td>
+          <td>{{ data.breaked }}</td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
